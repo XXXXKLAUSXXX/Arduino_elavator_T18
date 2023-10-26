@@ -2,6 +2,10 @@
 
 #include <Wire.h>
 
+bool elevatorDirection;
+byte destinationFloor;
+byte currentFloor;
+
 void setup() {
   Wire.begin();        // join i2c bus (address optional for master)
   Serial.begin(9600);  // start serial for output
