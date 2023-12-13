@@ -18,6 +18,7 @@ bool Chosen_one;
 void requestEvent(){
   Wire.write(BTN_low);
   Wire.write(IR);    
+    Serial.println(Chosen_one);
   return;        
 }
 
@@ -48,8 +49,8 @@ BTN_low = digitalRead(BTNPIN);
 
 if(IR == 1){
 digitalWrite(LEDRED, 1);
-if(Chosen_one == true)
-{digitalWrite(LEDGREEN, 1); }
+if(Chosen_one == true){
+  digitalWrite(LEDGREEN, 1);}
 }
 else {
   digitalWrite(LEDRED, 0);
@@ -58,13 +59,13 @@ else {
 
 
 if(BTN_low == 1){digitalWrite(BTNPIN, 1);}
-else {{digitalWrite(BTNPIN, 0);}
-}
+else {digitalWrite(BTNPIN, 0);}
 
 if(Chosen_one == true){
-  digitalWrite(BTNLED, 1)
-}
-
+  digitalWrite(BTNLED, 1);}
+  else {
+    digitalWrite(BTNLED, 0);
+  }
 }//end loop
 
 

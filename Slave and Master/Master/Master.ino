@@ -11,7 +11,7 @@ int Lfloor = 0;  //not sure if this one gets updated by the livefloor function
 char Temp;
 int MagicSequence[3][2];
 double Start_time = millis();
-float TTime = millis() - Start_time;
+float TTime;
 
 int x = 0;
 int y = 0;
@@ -42,9 +42,9 @@ int step_number = 0;
 
 
 int Live_floor() {
-  if (MagicSequence[0][1] == 1) { Lfloor = 1; }
-  if (MagicSequence[1][1] == 1) { Lfloor = 2; }
-  if (MagicSequence[2][1] == 1) { Lfloor = 3; }
+  for(int i = 0; i < 3; i++){
+  if (MagicSequence[i][1] == 1) { Lfloor = i + 1; }
+}
   return (Lfloor);
 }
 
@@ -171,8 +171,7 @@ switch(step_number){
   digitalWrite(STEPPER_PIN_2, LOW);
   digitalWrite(STEPPER_PIN_3, LOW);
   digitalWrite(STEPPER_PIN_4, LOW);
-
-
+break;
 }
   }
 step_number++;
@@ -196,6 +195,7 @@ void setup() {
 
 
 void loop() {
+  TTime = millis() - Start_time;
   //fill a 2d array with the magic sequence
   //don't forget arrays are zerobased
 
@@ -224,7 +224,7 @@ void loop() {
     {
       Serial.print(MagicSequence[y][x]);
     }
-    //Serial.println();
+    Serial.println();
   }
 
 
