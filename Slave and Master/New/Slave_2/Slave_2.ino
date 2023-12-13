@@ -2,8 +2,8 @@
 
 #define slave 1
 #define IR 7
-#define LEDGREEN 4
-#define LEDRED 6
+#define LEDGREEN 6
+#define LEDRED 5
 
 int LiveFloor = 0;
 int ChosenFloor = 0;
