@@ -22,6 +22,7 @@ void loop() {
 for(int i = 0; i <= 4; i++) { //transmit the live floor to all slaves.
     Wire.beginTransmission(i);
     Wire.write(LiveFloor);
+   Wire.write(ChosenFloor);
     Wire.endTransmission();
   }
 }

@@ -6,6 +6,7 @@
 #define LEDRED 6
 
 int LiveFloor = 0;
+int ChosenFloor = 0;
 
 void setup() {
   Wire.begin(slave);
@@ -34,5 +35,10 @@ void requestEvent() {
 
 void recieveEvent() {
   LiveFloor = Wire.read();
+  ChosenFloor = Wire.read();
+  Serial.print("LiveFloor: ");
   Serial.println(LiveFloor);
+  Serial.print("ChosenFloor: ");
+  Serial.println(ChosenFloor);
+  Serial.println();
 }
